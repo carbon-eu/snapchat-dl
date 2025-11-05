@@ -126,7 +126,7 @@ class SnapchatDL:
                 timestamp = int(media["timestampInSec"]["value"])
                 date_str = strf_time(timestamp, "%Y-%m-%d")
 
-                dir_name = os.path.join(self.directory_prefix, username, date_str)
+                dir_name = os.path.join(self.directory_prefix, username)
                 os.makedirs(dir_name, exist_ok=True)
 
                 filename = strf_time(timestamp, "%Y-%m-%d_%H-%M-%S {} {}.{}").format(
