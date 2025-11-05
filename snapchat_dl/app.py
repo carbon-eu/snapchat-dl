@@ -12,6 +12,7 @@ from snapchat_dl.utils import search_usernames
 from snapchat_dl.utils import use_batch_file
 from snapchat_dl.utils import use_prefix_dir
 from snapchat_dl.utils import UserNotFoundError
+from snapchat_dl.utils import APIResponseError
 
 
 def main():
@@ -46,12 +47,12 @@ def main():
                     history.append(username)
                     try:
                         downlaoder.download(username)
-                    except (NoStoriesFound, UserNotFoundError):
+                    except (NoStoriesFound, UserNotFoundError, APIResponseError):
                         pass
             else:
                 try:
                     downlaoder.download(username)
-                except (NoStoriesFound, UserNotFoundError):
+                except (NoStoriesFound, UserNotFoundError, APIResponseError):
                     pass
 
     try:
